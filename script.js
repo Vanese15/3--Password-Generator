@@ -24,22 +24,34 @@ function writePassword() {
     passwordText.value = password;
 }    
 
-let generatePassword = function() { 
+function generatePassword() { 
     let passwordLength = prompt("Password must be between 8 and 128 characters. How long do you want your password to be?");
     console.log(passwordLength);
+
+
     if (passwordLength<8) {
     alert("Password minimum is 8 characters");
-    // return;
+    return ""
 } 
     else if (passwordLength>128) {
     alert("Password maximum is 128 characters");
-    // return;
+    return ""
     }    
     let passwordUpperCase = prompt("Click Ok to include uppercase.");
     let passwordLowerCase = prompt("Click Ok to include lowercase.");
     let passwordNumbers = prompt("Click Ok to include number.");
     let passwordspecialChar = prompt("Click Ok to include special charcter.");
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
