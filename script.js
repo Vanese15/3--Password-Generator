@@ -1,27 +1,28 @@
 // Assignment Code
 let generateBtn = document.querySelector("#generate");
 
-function randomInt(min, max) {
-    let randomInt = Math.random()
-    return Math.floor(min + (1 - random))
+// function randomInt(min, max) {
+//     let randomInt = Math.random()
+//     return Math.floor(min + (1 - random))
 
-}
+// }
 
 function generatePassword() { 
-    let passwordLength = window.prompt("How long do you want your password to be?");
-   
-    if (passwordLength < 8 || passwordLength > 128) {
+    let passwordLength = parseInt(window.prompt("How long do you want your password to be?"));
+//    console.log(passwordLength);
+
+    if (isNaN(passwordLength)||passwordLength < 8 || passwordLength > 128) {
     window.alert("Password must be between 8 and 128 characters.");
-    return
+    generatePassword()
 } 
     // else if (passwordLength>128) {
     // window.alert("Password maximum is 128 characters");
     // return ""
     // }    
-    let pwdOptionUpperCase = window.prompt("Click Ok to include uppercase.");
-    let pwdOptionLowerCase = window.prompt("Click Ok to include lowercase.");
-    let pwdOptionpwdNumber = window.prompt("Click Ok to include number.");
-    let pwdOptionSpecialChar = window.prompt("Click Ok to include special charcter.");
+    let pwdOptionUpperCase = window.confirm("Click Ok to include uppercase.");
+    let pwdOptionLowerCase = window.confirm("Click Ok to include lowercase.");
+    let pwdOptionpwdNumber = window.confirm("Click Ok to include number.");
+    let pwdOptionSpecialChar = window.confirm("Click Ok to include special charcter.");
 
     // Array for all character option for password
     let pwdUpperCase = ["A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
@@ -31,30 +32,33 @@ function generatePassword() {
 
     let pwdOptions = [];
 
-    if (pwdOptionUpperCase === true) {
-        pwdOptions.push(pwdOptionUpperCase)
+    if (pwdOptionUpperCase) {
+        pwdOptions = pwdOptions.concat(pwdUpperCase)
     }
 
-    if (pwdOptionLowerCase === true) {
-        pwdOptions.push(pwdOptionLowerCase)
+    if (pwdOptionLowerCase) {
+        pwdOptions = pwdOptions.concat(pwdLowerCase)
     }
 
-    if (pwdOptionpwdNumber === true) {
-        pwdOptions.push(pwdOptionpwdNumber)
+    if (pwdOptionpwdNumber) {
+        pwdOptions = pwdOptions.concat(pwdNumber)
     }
 
-    if (pwdOptionSpecialChar === true) {
-        pwdOptions.push(pwdOptionSpecialChar)
+    if (pwdOptionSpecialChar) {
+        pwdOptions = pwdOptions.concat(pwdSpecialChar)
     }
-    let generatePassword = ""
+    // pwdOptions = pwdOptions.join("")
+    console.log(pwdOptions);
+    let finalPassword = ""
 
     for (let i = 0; i < passwordLength; i++){
-        let randomInt = getRandomItem(pwdOptions)
-        let randomChar = getRandomItem()
-        generatePassword += randomChar
+        let randomInt = Math.floor(Math.random() * pwdOptions.length)
+        console.log(randomInt)
+        let randomChar = pwdOptions[randomInt]
+        finalPassword += randomChar
     }
 
-   return generatePassword 
+   return finalPassword 
 
 }
         
