@@ -10,3 +10,9 @@ THEN the password is still not generated
 WHEN I continue working on this
 THEN the secure password will be generated
 
+![image](https://user-images.githubusercontent.com/16092802/196038811-4837680f-a726-4546-9a2a-89db617cd136.png)
+
+![2](https://user-images.githubusercontent.com/16092802/196038835-b5eacf0d-4c4c-40a7-b04b-e58e91c6bd88.png)
+
+
+
